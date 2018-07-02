@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>E-Commerce product classification Demo portal</title>
+        <style>
+        /* tell the container's children to float left: */
+        .float-my-children > * {
+            float:left;
+            margin-right:5px;
+          }
+        .clearfix {
+          *zoom:1 /* for IE */
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+          content: " ";
+          display: table;
+        }
+
+        .clearfix:after {
+          clear: both;
+        }
+
+        .input_box {
+          width: 300px;
+          height: 20px;
+          font-size: 15px;
+
+        }
+        .foo {
+          float: left;
+          width: 20px;
+          height: 20px;
+          margin: 5px;
+          border: 1px solid rgba(0, 0, 0, .2);
+        }
+        /* end clearfix*/
+
+        </style>
+    </head>
+
+    <body>
+      <h1 align="center">E-commerce product's category predictor :: Demo portal</h1>
+        <!-- List of uploaded documents -->
+        <!-- {% if documents %}
+            <ul>
+                {% for document in documents %}
+                    <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No documents.</p>
+        {% endif %} -->
+
+        <div class="clearfix float-my-children">
+           <div>
+           <img src="{{path}}" width="500" height="500">
+          </div>
+           <div style="margin: 25px;">
+            <h2>Predicted category</h2>
+            <div>
+               {% for category in categories %}
+               <input type="text" value="{{category}}" class="field left" readonly>
+               {% endfor %}
+            </div>
+
+            <div>
+              <h2>Color of the product</h2>
+                  <div class="foo" style='background-color: {{color}}'></div>
+            </div>
+            <br>
+            <div>
+              <h2> Predicted score for all classes</h2>
+              <div>
+                <input  style="border: none; background: transparent; font-weight:bold;" type="text" value="Combined category" class="field left" readonly>
+                <input style="border: none; background: transparent; font-weight:bold;" type="text" value="Probability score" class="field left" readonly>
+                <br></br>
+                 {% for mix in classes_scores %}
+                 <input class="input_box" id="das" type="text" value="{{mix.0}}" width = "this.value.length" class="field left" >
+                 <!-- <span>{{mix.0}}</span> -->
+                 <input class="input_box" type="text" value="{{mix.1}}" class="field left" readonly>
+                 <br></br>
+                 {% endfor %}
+              </div>
+            </div>
+           </div>
+
+
+        </div>
+
+
+
+        <!-- Upload form. Note enctype attribute! -->
+        <form action="{% url "list" %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form.non_field_errors }}</p>
+
+            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+
+            <p>
+                {{ form.docfile.errors }}
+                {{ form.docfile }}
+            </p>
+
+            <p><input type="submit" value="Upload"/></p>
+        </form>
+    </body>
+
+</html>
