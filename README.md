@@ -9,9 +9,9 @@ Most of the dependencies can be installed using
 # POST INSTALLATION
 Download flipkart.pb file from below url
 
+***Flipkart.pb [here](https://drive.google.com/file/d/1eSDB70ThPItPPIBTMuDq5VLeIVPoAWyf/view?usp=sharing).***
 
-***flipkart.pb (https://drive.google.com/file/d/1eSDB70ThPItPPIBTMuDq5VLeIVPoAWyf/view?usp=sharing) ***
-move the file into Ecom_PC_Portal>myapp>output_graph
+Move the file into Ecom_PC_Portal>myapp>output_graph
 
 # USAGE
 `python manage.py runserver`
