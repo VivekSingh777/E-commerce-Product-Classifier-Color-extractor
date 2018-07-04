@@ -7,8 +7,10 @@ Most of the dependencies can be installed using
 `pip install -r requirements.txt`
 
 # POST INSTALLATION
-Download flipkart.pb file from below url 
-*** flipkart.pb (https://drive.google.com/file/d/1eSDB70ThPItPPIBTMuDq5VLeIVPoAWyf/view?usp=sharing) ***
+Download flipkart.pb file from below url
+
+
+***flipkart.pb (https://drive.google.com/file/d/1eSDB70ThPItPPIBTMuDq5VLeIVPoAWyf/view?usp=sharing) ***
 move the file into Ecom_PC_Portal>myapp>output_graph
 
 # USAGE
